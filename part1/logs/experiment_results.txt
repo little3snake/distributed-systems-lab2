@@ -1,0 +1,6 @@
+Lab 2 Part 1 experiment results
+unsafe: expected=500, actual=26, time=0.092s
+locked: expected=500, actual=500, time=1.318s
+sequential: expected=20, actual=20, time=1.040s
+threaded: expected=20, actual=20, time=0.065s
+threaded_speedup=16.06x

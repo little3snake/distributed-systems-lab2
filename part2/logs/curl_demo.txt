@@ -1,0 +1,79 @@
+=== GET /potions ===
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 3
+Connection: close
+
+[]
+
+=== POST /potions ===
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 111
+Connection: close
+
+{"effect":"See clearly in darkness","id":1,"ingredients":["moonwater","silverleaf"],"name":"Moonlight Elixir"}
+
+=== POST duplicate potion (409) ===
+HTTP/1.1 409 CONFLICT
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 49
+Connection: close
+
+{"error":"Potion with this name already exists"}
+
+=== POST without JSON Content-Type (415) ===
+HTTP/1.1 415 UNSUPPORTED MEDIA TYPE
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 50
+Connection: close
+
+{"error":"Content-Type must be application/json"}
+
+=== PUT /potions/1 (405) ===
+HTTP/1.1 405 METHOD NOT ALLOWED
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 31
+Connection: close
+
+{"error":"Method not allowed"}
+
+=== GET /potions/1 ===
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 111
+Connection: close
+
+{"effect":"See clearly in darkness","id":1,"ingredients":["moonwater","silverleaf"],"name":"Moonlight Elixir"}
+
+=== DELETE /potions/1 ===
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 111
+Connection: close
+
+{"effect":"See clearly in darkness","id":1,"ingredients":["moonwater","silverleaf"],"name":"Moonlight Elixir"}
+
+=== GET /potions/999 (404) ===
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.6
+Date: Fri, 16 Oct 2026 03:12:15 GMT
+Content-Type: application/json
+Content-Length: 29
+Connection: close
+
+{"error":"Potion not found"}

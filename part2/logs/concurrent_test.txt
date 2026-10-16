@@ -1,0 +1,19 @@
+Mode: unsafe
+Requests sent: 100
+HTTP 201 responses: 100
+Potions actually stored: 14
+Unique ids returned: 14
+Elapsed time: 0.208 s
+Correct result: False
+
+Mode: locked
+Requests sent: 100
+HTTP 201 responses: 100
+Potions actually stored: 100
+Unique ids returned: 100
+Elapsed time: 1.108 s
+Correct result: True
+
+Summary
+Unsafe lost records: 86
+Locked result correct: True

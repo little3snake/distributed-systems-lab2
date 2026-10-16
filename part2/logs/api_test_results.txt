@@ -1,0 +1,13 @@
+Lab 2 Part 2 API validation
+GET /potions -> 200, []
+POST /potions -> 201, potion id 1 created
+GET /potions/1 -> 200
+GET /potions -> 200, one record
+GET /potions/999 -> 404, {"error": "Potion not found"}
+DELETE /potions/1 -> 200
+GET /potions/1 after deletion -> 404
+POST /potions with missing or invalid fields -> 400
+POST /potions with duplicate name -> 409
+PUT /potions/1 -> 405
+POST /potions without application/json Content-Type -> 415
+Result: all checks passed
